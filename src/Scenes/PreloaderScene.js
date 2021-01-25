@@ -2,6 +2,7 @@
 // import blueBtn1 from '../assets/ui/blue-button1.png'
 // import blueBtn2 from '../assets/ui/blue-button2.png';
 import background from '../assets/Uchiha_Hideout.png';
+import hero from "../assets/itachi.png";
 // import logoImg from '../assets/logo.png';
 // import grey from '../assets/ui/grey_box.png';
 // import checkBox from '../assets/ui/blue_boxCheckmark.png';
@@ -90,6 +91,10 @@ export default class PreloaderScene extends Phaser.Scene {
     // this.load.image('checkedBox', checkBox);
     // this.load.audio('bgMusic', cbgMusic);
     this.load.image('background', background);
+    this.load.spritesheet('hero', 
+        hero,
+        { frameWidth: 50, frameHeight: 75 }
+    );
   }
 
   create() {
