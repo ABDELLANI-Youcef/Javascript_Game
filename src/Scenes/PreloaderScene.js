@@ -2,7 +2,12 @@
 // import blueBtn1 from '../assets/ui/blue-button1.png'
 // import blueBtn2 from '../assets/ui/blue-button2.png';
 import background from '../assets/Uchiha_Hideout.png';
-import hero from "../assets/itachi.png";
+import hero from "../assets/test_hero.png";
+import data from '../assets/sprites.json';
+import coinImg from '../assets/coin.png'
+import coinData from '../assets/coin.json';
+import bombImg from '../assets/bomb.png'
+import bombData from '../assets/bomb.json'
 // import logoImg from '../assets/logo.png';
 // import grey from '../assets/ui/grey_box.png';
 // import checkBox from '../assets/ui/blue_boxCheckmark.png';
@@ -91,10 +96,9 @@ export default class PreloaderScene extends Phaser.Scene {
     // this.load.image('checkedBox', checkBox);
     // this.load.audio('bgMusic', cbgMusic);
     this.load.image('background', background);
-    this.load.spritesheet('hero', 
-        hero,
-        { frameWidth: 50, frameHeight: 75 }
-    );
+    this.load.atlas('hero', hero, data);
+    this.load.atlas('coin', coinImg, coinData);
+    this.load.atlas('bomb', bombImg, bombData);
   }
 
   create() {
@@ -106,7 +110,7 @@ export default class PreloaderScene extends Phaser.Scene {
   }
 
   ready() {
-    
+
     // this.scene.start('Title');
     // this.readyCount++;
     // if (this.readyCount === 2) {
