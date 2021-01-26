@@ -8,6 +8,8 @@ import coinImg from '../assets/coin.png'
 import coinData from '../assets/coin.json';
 import bombImg from '../assets/bomb.png'
 import bombData from '../assets/bomb.json'
+import fireImg from '../assets/fireball.png';
+import fireData from '../assets/fireball.json';
 // import logoImg from '../assets/logo.png';
 // import grey from '../assets/ui/grey_box.png';
 // import checkBox from '../assets/ui/blue_boxCheckmark.png';
@@ -99,6 +101,7 @@ export default class PreloaderScene extends Phaser.Scene {
     this.load.atlas('hero', hero, data);
     this.load.atlas('coin', coinImg, coinData);
     this.load.atlas('bomb', bombImg, bombData);
+    this.load.atlas('fireball', fireImg, fireData);
   }
 
   create() {

@@ -34,6 +34,84 @@ export default class GameScene extends Phaser.Scene {
     this.bombs = this.physics.add.group();
     this.physics.add.collider(this.player, this.bombs, this.hitBomb, null, this);
 
+    // fireball 
+    this.fireball = this.physics.add.sprite(100, 450, 'fireball', 'fire1');
+    this.fireball.disableBody(true, true);
+    this.fireball.setCollideWorldBounds(true);
+    this.fireball.body.setAllowGravity(false);
+    this.fireball.on('animationcomplete', () => {
+      this.fireball.disableBody(true, true);
+    })
+    this.physics.add.collider(this.fireball, this.bombs, this.burnBomb, null, this);
+    this.power = 0;
+    this.powerText = this.add.text(500, 16, 'Power: 0', { fontSize: '45px', fill: '#000' });
+    this.fireball.anims.create({
+      key: 'shoot',
+      frames: [
+        {
+          key: 'fireball',
+          frame: 'fire1'
+        },
+        {
+          key: 'fireball',
+          frame: 'fire2'
+        },
+        {
+          key: 'fireball',
+          frame: 'fire3'
+        },
+        {
+          key: 'fireball',
+          frame: 'fire4'
+        },
+        {
+          key: 'fireball',
+          frame: 'fire5'
+        },
+        {
+          key: 'fireball',
+          frame: 'fire6'
+        },
+        {
+          key: 'fireball',
+          frame: 'fire7'
+        },
+        {
+          key: 'fireball',
+          frame: 'fire8'
+        },
+        {
+          key: 'fireball',
+          frame: 'fire9'
+        },
+        {
+          key: 'fireball',
+          frame: 'fire10'
+        },
+        {
+          key: 'fireball',
+          frame: 'fire11'
+        },
+        {
+          key: 'fireball',
+          frame: 'fire12'
+        },
+        {
+          key: 'fireball',
+          frame: 'fire13'
+        },
+        {
+          key: 'fireball',
+          frame: 'fire14'
+        },
+        {
+          key: 'fireball',
+          frame: 'fire15'
+        },
+      ],
+      frameRate: 5,
+      repeat: 1
+    });
 
     this.player.anims.create({
       key: 'left',
@@ -147,6 +225,11 @@ export default class GameScene extends Phaser.Scene {
     this.scoreText.setText('Score: ' + this.score);
 
     if (this.coins.countActive(true) === 0) {
+      this.power++;
+      if (this.power % 3 === 0) {
+        this.shootFire();
+      }
+      this.powerText.setText('Power: ' + this.power);
       if (this.speed < 400) {
         this.speed += 40;
       }
@@ -172,9 +255,16 @@ export default class GameScene extends Phaser.Scene {
     bomb.disableBody(true, true);
     this.scoreText.setText('Score: ' + this.score);
     // player.setTint(0xff0000);
-
     // player.anims.play('turn');
+  }
 
-    
+  shootFire() {
+    let x = this.player.flipX ? -200 : 200
+    this.fireball.enableBody(true, this.player.x + x, this.player.y - 20, true, true);
+    this.fireball.anims.play('shoot', true);
+  }
+
+  burnBomb(fire, bomb) {
+    bomb.disableBody(true, true);
   }
 };
