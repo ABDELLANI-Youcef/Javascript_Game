@@ -24,7 +24,6 @@
     "eslint-config-airbnb-base": "14.1.x",
     "eslint-plugin-import": "2.20.x",
     "jest": "^26.6.3",
-    "phaser": "^3.52.0",
     "stylelint": "13.3.x",
     "stylelint-config-standard": "20.0.x",
     "stylelint-csstree-validator": "^1.9.0",
@@ -34,6 +33,7 @@
     "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
-    "@webpack-cli/init": "^1.1.2"
+    "@webpack-cli/init": "^1.1.2",
+    "phaser": "^3.52.0"
   }
 }

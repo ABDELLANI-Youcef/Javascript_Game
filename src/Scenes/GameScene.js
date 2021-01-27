@@ -1,4 +1,7 @@
-import 'phaser'
+import Phaser from 'phaser';
+import {
+  fireballAnim, playerAnimLeft, playerAnimRight, playerAnimStance,
+} from './animations';
 
 export default class GameScene extends Phaser.Scene {
   constructor() {
@@ -10,7 +13,7 @@ export default class GameScene extends Phaser.Scene {
     const background = this.add.image(400, 256, 'background');
     background.setScale(1.6);
 
-    // player
+
     this.speed = 160;
     this.jump = 330;
     this.player = this.physics.add.sprite(100, 450, 'hero', 'stance');
@@ -25,17 +28,16 @@ export default class GameScene extends Phaser.Scene {
       coin.setCollideWorldBounds(true);
     }
 
-    // scores
+
     this.score = 0;
     this.scoreText = this.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' });
     this.physics.add.overlap(this.player, this.coins, this.collectCoin, null, this);
 
-    // Bombs
+
     this.bombs = this.physics.add.group();
     this.physics.add.collider(this.player, this.bombs, this.hitBomb, null, this);
 
-    // fireball
-    // this.fireball = this.physics.add.sprite(100, 450, 'fireball', 'fire1');
+
     this.fireball = this.physics.add.staticSprite(100, 475, 'fireball', 'fire1');
 
     this.fireball.disableBody(true, true);
@@ -46,142 +48,11 @@ export default class GameScene extends Phaser.Scene {
     this.physics.add.collider(this.fireball, this.bombs, this.burnBomb, null, this);
     this.power = 0;
     this.powerText = this.add.text(500, 16, 'Power: 0', { fontSize: '45px', fill: '#000' });
-    this.fireball.anims.create({
-      key: 'shoot',
-      frames: [
-        {
-          key: 'fireball',
-          frame: 'fire1',
-        },
-        {
-          key: 'fireball',
-          frame: 'fire2',
-        },
-        {
-          key: 'fireball',
-          frame: 'fire3',
-        },
-        {
-          key: 'fireball',
-          frame: 'fire4',
-        },
-        {
-          key: 'fireball',
-          frame: 'fire5',
-        },
-        {
-          key: 'fireball',
-          frame: 'fire6',
-        },
-        {
-          key: 'fireball',
-          frame: 'fire7',
-        },
-        {
-          key: 'fireball',
-          frame: 'fire8',
-        },
-        {
-          key: 'fireball',
-          frame: 'fire9',
-        },
-        {
-          key: 'fireball',
-          frame: 'fire10',
-        },
-        {
-          key: 'fireball',
-          frame: 'fire11',
-        },
-        {
-          key: 'fireball',
-          frame: 'fire12',
-        },
-        {
-          key: 'fireball',
-          frame: 'fire13',
-        },
-        {
-          key: 'fireball',
-          frame: 'fire14',
-        },
-      ],
-      frameRate: 5,
-      repeat: 1,
-    });
+    this.fireball.anims.create(fireballAnim);
 
-    this.player.anims.create({
-      key: 'left',
-      frames: [
-        {
-          key: 'hero',
-          frame: 'run1',
-        },
-        {
-          key: 'hero',
-          frame: 'run2',
-        },
-        {
-          key: 'hero',
-          frame: 'run3',
-        },
-        {
-          key: 'hero',
-          frame: 'run4',
-        },
-        {
-          key: 'hero',
-          frame: 'run5',
-        },
-        {
-          key: 'hero',
-          frame: 'run6',
-        },
-      ],
-      frameRate: 10,
-      repeat: -1,
-    });
-    this.player.anims.create({
-      key: 'right',
-      frames: [
-        {
-          key: 'hero',
-          frame: 'run1',
-        },
-        {
-          key: 'hero',
-          frame: 'run2',
-        },
-        {
-          key: 'hero',
-          frame: 'run3',
-        },
-        {
-          key: 'hero',
-          frame: 'run4',
-        },
-        {
-          key: 'hero',
-          frame: 'run5',
-        },
-        {
-          key: 'hero',
-          frame: 'run6',
-        },
-      ],
-      frameRate: 10,
-      repeat: -1,
-    });
-    this.player.anims.create({
-      key: 'turn',
-      frames: [
-        {
-          key: 'hero',
-          frame: 'stance',
-        },
-      ],
-      frameRate: 20,
-    });
+    this.player.anims.create(playerAnimLeft);
+    this.player.anims.create(playerAnimRight);
+    this.player.anims.create(playerAnimStance);
     this.player.body.setGravityY(300);
     this.cursors = this.input.keyboard.createCursorKeys();
     this.input.keyboard.on('keydown', this.shootFire, this);
@@ -189,17 +60,17 @@ export default class GameScene extends Phaser.Scene {
 
   update() {
     if (this.cursors.left.isDown) {
-      this.player.setVelocityX(-1 * this.speed);// -160
+      this.player.setVelocityX(-1 * this.speed);
       this.player.flipX = true;
       this.player.anims.play('left', true);
     } else if (this.cursors.right.isDown) {
-      this.player.setVelocityX(this.speed);// 160
+      this.player.setVelocityX(this.speed);
       this.player.flipX = false;
       this.player.anims.play('right', true);
     } else {
       this.player.setVelocityX(0);
 
-      this.player.anims.play('turn');
+      this.player.anims.play('stance');
     }
 
     if (this.cursors.up.isDown && (this.player.body.onFloor())) {
@@ -208,7 +79,7 @@ export default class GameScene extends Phaser.Scene {
       } else if (this.cursors.right.isDown) {
         this.player.setVelocityX(this.speed);
       }
-      this.player.setVelocityY(-1 * this.jump);// -330
+      this.player.setVelocityY(-1 * this.jump);
     }
   }
 
@@ -230,7 +101,7 @@ export default class GameScene extends Phaser.Scene {
       this.coins.children.iterate((child) => {
         child.enableBody(true, child.x, 0, true, true);
       });
-      // creating bombs
+
 
       const bomb = this.bombs.create(800, 500, 'bomb', 'bomb1');
       bomb.setBounce(1);

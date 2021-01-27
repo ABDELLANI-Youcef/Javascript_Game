@@ -73,7 +73,7 @@ Give a ⭐️ if you like this project!
 - Hat tip to anyone whose code was used
 
 ## Issues
-If you would liike to report an issue [the link](https://github.com/ABDELLANI-Youcef/javascript_game/issues)
+If you would like to report an issue [the link](https://github.com/ABDELLANI-Youcef/javascript_game/issues)
 
 ## 📝 License
 
