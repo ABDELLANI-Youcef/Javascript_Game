@@ -9,12 +9,20 @@
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
-  "extends": ["airbnb-base"],
+  "extends": [
+    "airbnb-base"
+  ],
   "rules": {
     "no-shadow": "off",
     "no-param-reassign": "off",
     "eol-last": "off",
-    "arrow-parens": "off"
+    "arrow-parens": "off",
+    "import/no-unresolved": [
+      2,
+      {
+        "caseSensitive": false
+      }
+    ]
   },
   "ignorePatterns": [
     "dist/",
