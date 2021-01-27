@@ -17,7 +17,7 @@ class Game extends Phaser.Game {
 
     this.scene.add('Boot', BootScene);
     this.scene.add('Preloader', PreloaderScene);
-    // this.scene.add('Title', TitleScene);
+    this.scene.add('Title', TitleScene);
     // // this.scene.add('Options', OptionsScene);
     // // this.scene.add('Credits', CreditsScene);
     this.scene.add('Game', GameScene);
@@ -25,5 +25,5 @@ class Game extends Phaser.Game {
     
   }
 }
-
+// V6ByhikkkxTfvvLZEgMp
 window.game = new Game();

@@ -1,6 +1,3 @@
-// import 'phaser';
-// import logoImg from '../assets/flag-of-algeria-map.png';
-
 export default class GameScene extends Phaser.Scene {
   constructor() {
     super('Game');
@@ -43,8 +40,7 @@ export default class GameScene extends Phaser.Scene {
     this.fireball = this.physics.add.staticSprite(100, 475, 'fireball', 'fire1');
 
     this.fireball.disableBody(true, true);
-    // this.fireball.setCollideWorldBounds(true);
-    // this.fireball.body.setAllowGravity(false);
+
     this.fireball.on('animationcomplete', () => {
       this.fireball.disableBody(true, true);
     })
@@ -194,8 +190,7 @@ export default class GameScene extends Phaser.Scene {
   }
 
   update() {
-    // console.log(this.player.body.onFloor());
-    // console.log(this.player.body.touching)
+
     if (this.cursors.left.isDown) {
       this.player.setVelocityX(-1 * this.speed);//-160
       this.player.flipX = true;
@@ -211,7 +206,7 @@ export default class GameScene extends Phaser.Scene {
 
       this.player.anims.play('turn');
     }
-    // this.player.body.touching.down || 
+
     if (this.cursors.up.isDown && (this.player.body.onFloor())) {
       if (this.cursors.left.isDown) {
         this.player.setVelocityX(-1 * this.speed);
@@ -246,13 +241,11 @@ export default class GameScene extends Phaser.Scene {
       var bomb = this.bombs.create(800, 500, 'bomb', 'bomb1');
       bomb.setBounce(1);
       bomb.setCollideWorldBounds(true);
-      bomb.setVelocity(-150, -200);//Phaser.Math.Between(-200, 200)
+      bomb.setVelocity(-150, -200);
     }
   }
 
   hitBomb(player, bomb) {
-    // this.physics.pause();
-
     this.score = this.score >= 20 ? this.score - 20 : 0;
     bomb.destroy();
     this.scoreText.setText('Score: ' + this.score);
@@ -262,8 +255,6 @@ export default class GameScene extends Phaser.Scene {
       this.gameOver();
     }
 
-    // player.setTint(0xff0000);
-    // player.anims.play('turn');
   }
 
   shootFire(event) {
@@ -286,5 +277,6 @@ export default class GameScene extends Phaser.Scene {
   gameOver() {
     this.physics.pause();
     this.add.text(400, 250, 'Game Over', { fontSize: '70px', fill: '#f00' });
+    this.scene.start('Title');
   }
 };
