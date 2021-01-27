@@ -1,4 +1,5 @@
-/* eslint-disable no-undef */
+import Phaser from 'phaser'
+
 import config from './Config/config';
 import GameScene from './Scenes/GameScene';
 import BootScene from './Scenes/BootScene';
@@ -18,5 +19,5 @@ class Game extends Phaser.Game {
     this.scene.start('Boot');
   }
 }
-// V6ByhikkkxTfvvLZEgMp
+
 window.game = new Game();

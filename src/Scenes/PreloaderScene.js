@@ -1,4 +1,4 @@
-/* eslint-disable no-undef */
+import 'phaser'
 import blueBtn1 from '../assets/ui/blue-button1.png';
 import blueBtn2 from '../assets/ui/blue-button2.png';
 import background from '../assets/Uchiha_Hideout.png';
@@ -9,6 +9,7 @@ import bombImg from '../assets/bomb.png';
 import bombData from '../assets/bomb.json';
 import fireImg from '../assets/fireball.png';
 import fireData from '../assets/fireball.json';
+import hero from "../assets/itachi.png";
 
 
 export default class PreloaderScene extends Phaser.Scene {

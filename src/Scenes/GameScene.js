@@ -1,5 +1,4 @@
-/* eslint-disable no-undef */
-/* eslint-disable class-methods-use-this */
+import 'phaser'
 
 export default class GameScene extends Phaser.Scene {
   constructor() {

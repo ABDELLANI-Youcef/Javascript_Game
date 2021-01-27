@@ -1,8 +1,8 @@
-# javascript_game
+# Javascript Game
 
 ## About
 
-In this application, we created a rpg game in which the user controls Itachi (from the anime of naruto), recolts coin and try to avoid the bombs.
+In this application, I created a rpg game in which the user controls Itachi (from the anime of naruto), recolts coin and try to avoid the bombs.
 
 To build this application we used:
 
@@ -40,7 +40,7 @@ $ git checkout game-branch
 
 ```
 
-## Lunch the application
+## Launch the application
 
 After making the local copy of the repository:
 - get inside the repository folder;

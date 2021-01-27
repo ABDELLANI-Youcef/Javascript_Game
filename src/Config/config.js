@@ -1,4 +1,4 @@
-/* eslint-disable no-undef */
+
 export default {
   type: Phaser.AUTO,
   parent: 'phaser-example',
