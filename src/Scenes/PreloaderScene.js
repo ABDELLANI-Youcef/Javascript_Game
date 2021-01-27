@@ -2,7 +2,6 @@
 import blueBtn1 from '../assets/ui/blue-button1.png';
 import blueBtn2 from '../assets/ui/blue-button2.png';
 import background from '../assets/Uchiha_Hideout.png';
-import hero from '../assets/test_hero.png';
 import data from '../assets/sprites.json';
 import coinImg from '../assets/coin.png';
 import coinData from '../assets/coin.json';
