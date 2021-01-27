@@ -16,6 +16,12 @@ To build this application we used:
 
 [The live demo link](http://youcef.abdellani.dev/javascript_game/)
 
+## Features
+
+- Moving the caracter.
+- Increasing the speed and jumping abilities.
+- using fireball technic to burn bombs
+
 ## How to play
 
 In the beginning Itachi has 100 point of live (hp). The can use the arrows (left and right) to run, (up) to jump. each time he collect a coin he get 10 points in score. If he get 12 coins the power point will be increased by 1, his speed and jumpg abilities will increase and a bomb will be added to the scene. If the player get touched by a bomb he will lose 20 points of score and 12 point of HP. If Itachi has 3 points of power he can use the fireball technic to burn the bombs by clicking ("Space"). if the HP is arrives to 0, Itachi dies and the user loses.
