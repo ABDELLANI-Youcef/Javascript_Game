@@ -137,6 +137,8 @@ const playerAnimStance = {
   frameRate: 20,
 };
 
+const burnBomb = (fire, bomb) => bomb.destroy();
+
 export {
-  fireballAnim, playerAnimLeft, playerAnimRight, playerAnimStance,
+  fireballAnim, playerAnimLeft, playerAnimRight, playerAnimStance, burnBomb,
 };

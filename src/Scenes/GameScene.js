@@ -1,13 +1,12 @@
 import Phaser from 'phaser';
 import {
-  fireballAnim, playerAnimLeft, playerAnimRight, playerAnimStance,
+  fireballAnim, playerAnimLeft, playerAnimRight, playerAnimStance, burnBomb,
 } from './animations';
 
 export default class GameScene extends Phaser.Scene {
   constructor() {
     super('Game');
   }
-
 
   create() {
     const background = this.add.image(400, 256, 'background');
@@ -28,11 +27,9 @@ export default class GameScene extends Phaser.Scene {
       coin.setCollideWorldBounds(true);
     }
 
-
     this.score = 0;
     this.scoreText = this.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' });
     this.physics.add.overlap(this.player, this.coins, this.collectCoin, null, this);
-
 
     this.bombs = this.physics.add.group();
     this.physics.add.collider(this.player, this.bombs, this.hitBomb, null, this);
@@ -45,7 +42,7 @@ export default class GameScene extends Phaser.Scene {
     this.fireball.on('animationcomplete', () => {
       this.fireball.disableBody(true, true);
     });
-    this.physics.add.collider(this.fireball, this.bombs, this.burnBomb, null, this);
+    this.physics.add.collider(this.fireball, this.bombs, burnBomb, null, this);//
     this.power = 0;
     this.powerText = this.add.text(500, 16, 'Power: 0', { fontSize: '45px', fill: '#000' });
     this.fireball.anims.create(fireballAnim);
@@ -132,10 +129,6 @@ export default class GameScene extends Phaser.Scene {
     this.fireball.flipX = this.player.flipX;
     this.fireball.enableBody(true, this.player.x + x, 475, true, true);
     this.fireball.anims.play('shoot', true);
-  }
-
-  burnBomb(fire, bomb) {
-    bomb.destroy();
   }
 
   gameOver() {

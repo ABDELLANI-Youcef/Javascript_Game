@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "start": "webpack serve --open"
+    "start": "webpack serve --open",
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production",
+    "watch": "webpack --watch"
   },
   "repository": {
     "type": "git",

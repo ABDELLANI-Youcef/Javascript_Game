@@ -20,7 +20,6 @@ export default class PreloaderScene extends Phaser.Scene {
   preload() {
     this.load.image('blueButton1', blueBtn1);
     this.load.image('blueButton2', blueBtn2);
-
     this.load.image('background', background);
     this.load.atlas('hero', hero, data);
     this.load.atlas('coin', coinImg, coinData);
