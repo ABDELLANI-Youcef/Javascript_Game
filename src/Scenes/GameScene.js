@@ -13,11 +13,15 @@ export default class GameScene extends Phaser.Scene {
     let background = this.add.image(400, 256, 'background');
     background.setScale(1.6);
     let platforms = this.physics.add.staticGroup();
+
+    // player
     this.speed = 160;
     this.jump = 330;
     this.player = this.physics.add.sprite(100, 450, 'hero', 'stance');
     this.player.setBounce(0);// 0.2
     this.player.setCollideWorldBounds(true);
+    this.hp = 100;
+    this.hpText = this.add.text(350, 16, 'Hp: 100', { fontSize: '32px', fill: '#f00' });
 
     this.coins = this.physics.add.group();
     for (let i = 0; i < 12; i++) {
@@ -35,10 +39,12 @@ export default class GameScene extends Phaser.Scene {
     this.physics.add.collider(this.player, this.bombs, this.hitBomb, null, this);
 
     // fireball 
-    this.fireball = this.physics.add.sprite(100, 450, 'fireball', 'fire1');
+    // this.fireball = this.physics.add.sprite(100, 450, 'fireball', 'fire1');
+    this.fireball = this.physics.add.staticSprite(100, 475, 'fireball', 'fire1');
+
     this.fireball.disableBody(true, true);
-    this.fireball.setCollideWorldBounds(true);
-    this.fireball.body.setAllowGravity(false);
+    // this.fireball.setCollideWorldBounds(true);
+    // this.fireball.body.setAllowGravity(false);
     this.fireball.on('animationcomplete', () => {
       this.fireball.disableBody(true, true);
     })
@@ -103,11 +109,7 @@ export default class GameScene extends Phaser.Scene {
         {
           key: 'fireball',
           frame: 'fire14'
-        },
-        {
-          key: 'fireball',
-          frame: 'fire15'
-        },
+        }
       ],
       frameRate: 5,
       repeat: 1
@@ -187,6 +189,8 @@ export default class GameScene extends Phaser.Scene {
     });
     this.player.body.setGravityY(300);
     this.cursors = this.input.keyboard.createCursorKeys();
+    this.input.keyboard.on('keydown', this.shootFire, this);
+
   }
 
   update() {
@@ -226,14 +230,12 @@ export default class GameScene extends Phaser.Scene {
 
     if (this.coins.countActive(true) === 0) {
       this.power++;
-      if (this.power % 3 === 0) {
-        this.shootFire();
-      }
+
       this.powerText.setText('Power: ' + this.power);
       if (this.speed < 400) {
         this.speed += 40;
       }
-      if (this.jump < 660) {
+      if (this.jump < 540) {
         this.jump += 30;
       }
       this.coins.children.iterate((child) => {
@@ -244,7 +246,7 @@ export default class GameScene extends Phaser.Scene {
       var bomb = this.bombs.create(800, 500, 'bomb', 'bomb1');
       bomb.setBounce(1);
       bomb.setCollideWorldBounds(true);
-      bomb.setVelocity(-200, -200);//Phaser.Math.Between(-200, 200)
+      bomb.setVelocity(-150, -200);//Phaser.Math.Between(-200, 200)
     }
   }
 
@@ -252,19 +254,37 @@ export default class GameScene extends Phaser.Scene {
     // this.physics.pause();
 
     this.score = this.score >= 20 ? this.score - 20 : 0;
-    bomb.disableBody(true, true);
+    bomb.destroy();
     this.scoreText.setText('Score: ' + this.score);
+    this.hp = this.hp > 12 ? this.hp - 12 : 0;
+    this.hpText.setText('Hp: ' + this.hp)
+    if (this.hp === 0) {
+      this.gameOver();
+    }
+
     // player.setTint(0xff0000);
     // player.anims.play('turn');
   }
 
-  shootFire() {
-    let x = this.player.flipX ? -200 : 200
-    this.fireball.enableBody(true, this.player.x + x, this.player.y - 20, true, true);
+  shootFire(event) {
+    if (this.power < 3 || event.code !== "Space") {
+      return;
+    }
+
+    this.power -= 3;
+    this.powerText.setText('Power: ' + this.power);
+    let x = this.player.flipX ? -100 : 100
+    this.fireball.flipX = this.player.flipX;
+    this.fireball.enableBody(true, this.player.x + x, 475, true, true);
     this.fireball.anims.play('shoot', true);
   }
 
   burnBomb(fire, bomb) {
-    bomb.disableBody(true, true);
+    bomb.destroy();
+  }
+
+  gameOver() {
+    this.physics.pause();
+    this.add.text(400, 250, 'Game Over', { fontSize: '70px', fill: '#f00' });
   }
 };
