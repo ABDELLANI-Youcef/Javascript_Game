@@ -4,7 +4,7 @@ import GameScene from './Scenes/GameScene';
 import BootScene from './Scenes/BootScene';
 import PreloaderScene from './Scenes/PreloaderScene';
 import TitleScene from './Scenes/TitleScene';
-import ScoreScene from "./Scenes/ScoreScene";
+import ScoreScene from './Scenes/ScoreScene';
 import './style.css';
 
 class Game extends Phaser.Game {
@@ -18,5 +18,4 @@ class Game extends Phaser.Game {
     this.scene.start('Boot');
   }
 }
-
 window.game = new Game();

@@ -35,13 +35,11 @@ export default class ScoreForm extends Phaser.GameObjects.Container {
   }
 
   submitScore() {
-    let name = document.querySelector(this.form).value;
-    console.log(name);
-
+    const name = document.querySelector(this.form).value;
     const score = {
-      "user": name,
-      "score": this.score
-    }
+      user: name,
+      score: this.score,
+    };
 
     fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/V6ByhikkkxTfvvLZEgMp/scores/', {
       method: 'POST', // or 'PUT'
@@ -49,14 +47,6 @@ export default class ScoreForm extends Phaser.GameObjects.Container {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(score),
-    })
-      .then(response => response.json())
-      .then(data => {
-        console.log('Success:', data);
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-      });
-
+    });
   }
 }

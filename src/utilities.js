@@ -5,7 +5,7 @@ const merge = (arr1, arr2, property) => {
   }
   result = result.concat(arr1).concat(arr2);
   return result;
-}
+};
 
 const mergeSort = (arr, property) => {
   if (arr.length < 2) {
@@ -14,8 +14,8 @@ const mergeSort = (arr, property) => {
   let arr2 = arr.splice(Math.floor(arr.length / 2));
   arr = mergeSort(arr, property);
   arr2 = mergeSort(arr2, property);
-  let result = merge(arr, arr2, property);
+  const result = merge(arr, arr2, property);
   return result;
-}
+};
 
-export { mergeSort };
+export default mergeSort;

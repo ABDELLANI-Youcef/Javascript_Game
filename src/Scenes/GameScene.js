@@ -19,7 +19,7 @@ export default class GameScene extends Phaser.Scene {
     this.speed = 160;
     this.jump = 330;
     this.player = this.physics.add.sprite(100, 450, 'hero', 'stance');
-    this.player.setBounce(0);// 0.2
+    this.player.setBounce(0);
     this.player.setCollideWorldBounds(true);
     this.hp = 100;
     this.hpText = this.add.text(350, 16, 'Hp: 100', { fontSize: '32px', fill: '#f00' });
@@ -137,9 +137,9 @@ export default class GameScene extends Phaser.Scene {
   gameOver() {
     this.physics.pause();
     this.add.text(300, 400, 'Game Over', { fontSize: '70px', fill: '#f00' });
-    // this.scene.start('Title');
+
     this.mainMenuButton = new Button(this, config.width / 2, config.height / 2 - 100, 'blueButton1', 'blueButton2', 'Main menu', 'Title');
-    ScoreForm
+
     this.scoreForm = new ScoreForm(this, config.width / 2, config.height / 2, 'blueButton1', 'blueButton2', 'Submit', 'Title', 'username', this.score);
   }
 }

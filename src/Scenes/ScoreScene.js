@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 import config from '../Config/config';
 import Button from '../Objects/Button';
-import { mergeSort } from "../utilities";
+import mergeSort from '../utilities';
 
 export default class ScoreScene extends Phaser.Scene {
   constructor() {
@@ -13,14 +13,11 @@ export default class ScoreScene extends Phaser.Scene {
     fetch('https://us-central1-js-capstone-backend.cloudfunctions.net/api/games/V6ByhikkkxTfvvLZEgMp/scores/', { mode: 'cors' })
       .then(response => response.json())
       .then(data => {
-        console.log(data);
         let results = data.result;
-        console.log(results, results.length);
-        results = mergeSort(results,"score");
-        console.log(results, results.length);
-        for (let i = 0; i < results.length && i < 10; i++) {
+        results = mergeSort(results, 'score');
+        for (let i = 0; i < results.length && i < 10; i += 1) {
           const result = results[i];
-          this.add.text(200, 40 + 40*(i), `${result.user}: ${result.score}`, { fontSize: '32px', fill: '#fff' });
+          this.add.text(200, 40 + 40 * (i), `${result.user}: ${result.score}`, { fontSize: '32px', fill: '#fff' });
         }
       });
   }
