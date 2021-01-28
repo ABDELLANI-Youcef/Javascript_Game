@@ -1,3 +1,10 @@
 canvas {
   margin: auto;
 }
+
+#username {
+  display: none;
+  position: absolute;
+  top: 200px;
+  left: 285px;
+}

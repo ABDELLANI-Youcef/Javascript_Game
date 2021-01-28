@@ -1,4 +1,7 @@
 import Phaser from 'phaser';
+import Button from '../Objects/Button';
+import ScoreForm from '../Objects/ScoreForm';
+import config from '../Config/config';
 import {
   fireballAnim, playerAnimLeft, playerAnimRight, playerAnimStance, burnBomb,
 } from './animations';
@@ -133,7 +136,10 @@ export default class GameScene extends Phaser.Scene {
 
   gameOver() {
     this.physics.pause();
-    this.add.text(400, 250, 'Game Over', { fontSize: '70px', fill: '#f00' });
-    this.scene.start('Title');
+    this.add.text(300, 400, 'Game Over', { fontSize: '70px', fill: '#f00' });
+    // this.scene.start('Title');
+    this.mainMenuButton = new Button(this, config.width / 2, config.height / 2 - 100, 'blueButton1', 'blueButton2', 'Main menu', 'Title');
+    ScoreForm
+    this.scoreForm = new ScoreForm(this, config.width / 2, config.height / 2, 'blueButton1', 'blueButton2', 'Submit', 'Title', 'username', this.score);
   }
 }
