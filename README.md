@@ -1,5 +1,24 @@
 # Javascript Game
 
+## The table of contents
+
+- About
+- Live-demo
+- Features
+- How to play
+- Game images
+  - Main Menu
+  - Score scene
+  - Playing Scene
+  - Submiting score
+- Getting started (Development)
+- Launch the application
+- Author
+- Show your support
+- Acknowledgments
+- Issues
+- 📝 License
+
 ## About
 
 In this application, I created an RPG game in which the user controls Itachi (from the anime of Naruto), collect coin, and try to avoid the bombs.
@@ -27,7 +46,7 @@ To build this application we used:
 
 In the beginning, Itachi has 100 points of life (hp). The user can use the arrows (left and right) to run, (up) to jump. each time he collects a coin he gets 10 points in score. If he get 12 coins the power points will be increased by 1, his speed and jumping abilities will increase and a bomb will be added to the scene. If the player gets touched by a bomb he will lose 20 points of score and 12 points of HP. If Itachi has 3 points of power he can use the fireball technic to burn the bombs by clicking ("Space"). if the HP arrives at 0, Itachi dies and the user loses.
 
-## games images
+## Game images
 
 ### Main Menu
 ![Main menu](./main_scene_image.png)
@@ -38,7 +57,7 @@ In the beginning, Itachi has 100 points of life (hp). The user can use the arrow
 ### Playing Scene
 ![Game interface](./game_image.png)
 
-### submiting score
+### Submiting score
 ![Submit score](./submit_score_image.png)
 
 ## Getting started (Development)
