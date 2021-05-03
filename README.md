@@ -33,7 +33,7 @@ To build this application we used:
 
 ## Live-Demo
 
-[The live demo link](http://youcef.abdellani.dev/javascript_game/)
+[The live demo link](http://youcef.abdellani.dev/Javascript_Game/)
 
 ## Features
 
