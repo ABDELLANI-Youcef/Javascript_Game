@@ -1,0 +1,161 @@
+{
+  "frames": [
+    {
+      "filename": "run1",
+      "frame": {
+        "x": 8,
+        "y": 18,
+        "w": 48,
+        "h": 50
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 48,
+        "h": 50
+      },
+      "sourceSize": {
+        "w": 48,
+        "h": 50
+      }
+    },
+    {
+      "filename": "run2",
+      "frame": {
+        "x": 68,
+        "y": 18,
+        "w": 56,
+        "h": 45
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 56,
+        "h": 45
+      },
+      "sourceSize": {
+        "w": 56,
+        "h": 45
+      }
+    },
+    {
+      "filename": "run5",
+      "frame": {
+        "x": 268,
+        "y": 18,
+        "w": 54,
+        "h": 45
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 54,
+        "h": 45
+      },
+      "sourceSize": {
+        "w": 54,
+        "h": 45
+      }
+    },
+    {
+      "filename": "run4",
+      "frame": {
+        "x": 208,
+        "y": 19,
+        "w": 45,
+        "h": 48
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 45,
+        "h": 48
+      },
+      "sourceSize": {
+        "w": 45,
+        "h": 48
+      }
+    },
+    {
+      "filename": "run3",
+      "frame": {
+        "x": 136,
+        "y": 20,
+        "w": 57,
+        "h": 47
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 57,
+        "h": 47
+      },
+      "sourceSize": {
+        "w": 57,
+        "h": 47
+      }
+    },
+    {
+      "filename": "run6",
+      "frame": {
+        "x": 333,
+        "y": 20,
+        "w": 58,
+        "h": 47
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 58,
+        "h": 47
+      },
+      "sourceSize": {
+        "w": 58,
+        "h": 47
+      }
+    },
+    {
+      "filename": "stance",
+      "frame": {
+        "x": 1,
+        "y": 85,
+        "w": 29,
+        "h": 65
+      },
+      "rotated": false,
+      "trimmed": false,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 29,
+        "h": 65
+      },
+      "sourceSize": {
+        "w": 29,
+        "h": 65
+      }
+    }
+  ],
+  "meta": {
+    "app": "https://www.leshylabs.com/apps/sstool/",
+    "version": "Leshy SpriteSheet Tool v0.8.4",
+    "image": "spritesheet.png",
+    "size": {
+      "w": 397,
+      "h": 155
+    },
+    "scale": 1
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "name": "burn_diedara",
+  "version": "1.0.0",
+  "description": "This is a javascript game of naruto anime caracters",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "start": "webpack serve --open",
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production",
+    "watch": "webpack --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ABDELLANI-Youcef/javascript_game.git"
+  },
+  "author": "Youcef Abdellani",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ABDELLANI-Youcef/javascript_game/issues"
+  },
+  "homepage": "https://github.com/ABDELLANI-Youcef/javascript_game#readme",
+  "devDependencies": {
+    "@babel/preset-env": "^7.12.11",
+    "babel-eslint": "10.1.x",
+    "css-loader": "^5.0.1",
+    "eslint": "6.8.x",
+    "eslint-config-airbnb-base": "14.1.x",
+    "eslint-plugin-import": "2.20.x",
+    "jest": "^26.6.3",
+    "style-loader": "^2.0.0",
+    "stylelint": "13.3.x",
+    "stylelint-config-standard": "20.0.x",
+    "stylelint-csstree-validator": "^1.9.0",
+    "stylelint-scss": "3.17.x",
+    "webpack": "^5.17.0",
+    "webpack-cli": "^4.4.0",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "dependencies": {
+    "@webpack-cli/init": "^1.1.2",
+    "phaser": "^3.52.0"
+  }
+}
